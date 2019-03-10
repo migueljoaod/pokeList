@@ -1,10 +1,12 @@
 <!-- Header -->
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-light" style="margin-bottom:5px">
   <a class="navbar-brand mx-auto" href="#">
-    <img src="/assets/pokeball.png" width="30" height="30" class="d-inline-block align-top" alt="">
-    {{ title }}
+    <img src="/assets/pokeball.png" width="35" height="35" class="d-inline-block mx-auto" alt="">
+    <a class="app-title">{{ title }}</a>
   </a>
 </nav>
+
+<app-pokemon-card></app-pokemon-card>
 
 <!-- Footer -->
 <nav class="navbar navbar-light bg-light fixed-bottom">
@@ -12,8 +14,5 @@
     Created by Miguel
   </span>
 </nav>
-
-
-
 
 <router-outlet></router-outlet>

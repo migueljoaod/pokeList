@@ -1,0 +1,41 @@
+
+img {
+    width: 100%;
+    height: 100%;
+    max-width: 150px;
+}
+
+.card {
+  margin: 16px;
+  background-color: rgb(250, 250, 250)
+}
+
+.card-body {
+  background-color: white;
+}
+
+
+@media (min-width: 576px) {
+  .col-3 {
+      column-count: 2;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-3 {
+      column-count: 3;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-3 {
+      column-count: 4;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-3 {
+      column-count: 5;
+  }
+}
+
