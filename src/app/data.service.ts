@@ -11,9 +11,14 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
   apiUrl = "https://pokeapi.co/api/v2/pokemon/";
-  
+  limit = "?limit=964"
   getPokemons(){
-    return this.http.get(this.apiUrl)
+    return this.http.get(this.apiUrl + this.limit)
   }
+  
+  getPokemon(url){
+    return this.http.get(url)
+  }
+  
   
 }

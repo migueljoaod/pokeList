@@ -9,21 +9,33 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./pokemon-card.component.css']
 })
 export class PokemonCardComponent implements OnInit {
-
+  p: number = 1;
   pokemons: Object;
   pokemon: Object;
   constructor(public data:DataService, private route: ActivatedRoute, private router: Router) { }
 
-  pokemonUrl: "https://pokeapi.co/api/v2/pokemon/25/";
+  pokemonUrl: any;
 
   setUrl(url){
     this.pokemonUrl = url;
   }
 
   ngOnInit() {
-    this.data.getPokemons().subscribe(data => {
-      this.pokemons = data;
-      console.log(this.pokemons);      
-    }) 
+    this.getPokemons();
+    this.getPokemon(this.pokemonUrl);
   }
+  getPokemons(){
+    this.data.getPokemons().subscribe(data => {
+      this.pokemons = data['results'];
+      console.log(this.pokemons);      
+    })
+  }
+
+  getPokemon(pokemonUrl){
+    this.data.getPokemon(pokemonUrl).subscribe(data => {
+      this.pokemon = data['results'];
+      console.log(this.pokemon);      
+    })
+  }
+   
 }

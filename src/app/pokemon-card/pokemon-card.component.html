@@ -1,12 +1,18 @@
 <div class="row card-group">
-  <div *ngFor="let pokemons of pokemons.results; let id=index;"  class="col-2">  
+  <div *ngFor="let pokemons of pokemons | paginate: { itemsPerPage: 12, currentPage: p }; let id=index;"  class="col-2">  
     <div class="card front">
-    <img class="card-img-top mx-auto d-block" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{id+1}}.png" alt="card image">    
-      <div class="card-body">
-        <h5 class="card-title">{{pokemons.name}}</h5>
-        <p class="card-text">Some text</p>
+    {{setUrl(pokemons.url)}}
+    <!--<div *ngFor="let pokemon of pokemon">-->
+      <img class="card-img-top mx-auto d-block" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{id+1}}.png" alt="card image">    
+      <!--<img class="card-img-top mx-auto d-block" src="{{pokemon.sprites.front_default}}.png" alt="card image">    -->
+        <div class="card-body">
+          <h5 class="card-title">{{pokemons.name}}</h5>
+          <a href="#" class="btn btn-primary">Details</a>
+        </div>
       </div>
-    </div>
+    <!--</div>-->
   </div>
 </div>
+
+<pagination-controls (pageChange)="p = $event" style="text-align: center"></pagination-controls>
     
